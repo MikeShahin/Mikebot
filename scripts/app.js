@@ -10,12 +10,21 @@
 // Commands:
 //
 
+// module.exports = function(robot) {
+//   robot.verb(parameter1, function(res) {
+//      return res.command();
+//    });
+// };
+
 module.exports = function(robot) {
     //  YOUR CODE HERE
+    robot.hear(/java/i, function(msg) {
+      return msg.send("I only know script");
+    });  
     //  Example
-    //  robot.hear(/javascript/i, function(msg) {
-    //    return msg.send("I love writing code!");
-    //  });
+     robot.hear(/javascript/i, function(msg) {
+       return msg.send("I love writing code!");
+     });
   }
   
   /************************************
