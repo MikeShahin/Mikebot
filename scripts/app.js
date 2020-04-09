@@ -24,9 +24,14 @@ module.exports = function(robot) {
        return msg.send("I love writing code!");
      });
 
-    robot.respond(/hi|hello/i, function(msg) {
-      return msg.send("Howdy!");
+    robot.hear(/hi|hello/i, function(msg) {
+      return msg.send("Howdy! I'm MikeBot, type @mikebot help to see what I can do!");
     });
+
+    robot.respond(/help/i, function(msg)) {
+      return msg.send("Here's are what I can do:")
+    }
+
 
     return robot.hear(/ship it/i, function(msg) {
       return msg.send(msg.random(squirrels));
