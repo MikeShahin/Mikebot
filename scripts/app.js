@@ -25,10 +25,10 @@ module.exports = function(robot) {
      });
 
     robot.hear(/hi|hello/i, function(msg) {
-      return msg.send("Howdy! I'm MikeBot, type '@mikebot help me' to see what I can do!");
+      return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
     });
 
-    robot.respond(/help me/i, function(msg) {
+    robot.respond(/what can you do/i, function(msg) {
       return msg.send("Here's are what I can do:")
     });
 
