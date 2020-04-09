@@ -83,20 +83,17 @@ module.exports = function(robot) {
       }
     });
 
-    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE',
-    'https://www.youtube.com/watch?v=Fy6iPyWfI3E',
-    'https://www.youtube.com/watch?v=kXOUmOFVFPo',
-    'https://www.youtube.com/watch?v=0OytJYBfwUk',
-    'https://www.youtube.com/watch?v=EtYS3EYjVyk',
-    'https://www.youtube.com/watch?v=nnXjxtfKFDM',
-    'https://www.youtube.com/watch?v=tNFwdpWwAQY',
-    'https://www.youtube.com/watch?v=UMvLvsdBzuE',
-    'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
+    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE', 'https://www.youtube.com/watch?v=Fy6iPyWfI3E', 'https://www.youtube.com/watch?v=kXOUmOFVFPo', 'https://www.youtube.com/watch?v=0OytJYBfwUk', 'https://www.youtube.com/watch?v=EtYS3EYjVyk', 'https://www.youtube.com/watch?v=nnXjxtfKFDM', 'https://www.youtube.com/watch?v=tNFwdpWwAQY', 'https://www.youtube.com/watch?v=UMvLvsdBzuE', 'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
 
     robot.respond(/play a random song/i, function(res) {
       return res.send(res.random(randomSongs));
     });
     
+    lulz = ['lol', 'rofl', 'lmao'];
+    robot.respond(/lulz/i, function(res) {
+      return res.send(res.random(lulz));
+    });
+
     robot.hear(/playing soon/i, function(msg) {
       return msg.send("Check out this wibsite for the latest shows: \n http://www.foopee.com/punk/the-list/");
       //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
