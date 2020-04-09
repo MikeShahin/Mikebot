@@ -40,6 +40,11 @@ module.exports = function(robot) {
       return msg.send("Check out this website for the latest shows:\n http://www.foopee.com/punk/the-list/");
     });
 
+    lulz = ['lol', 'rofl', 'lmao'];
+    robot.respond(/lulz/i, function(res) {
+      return res.send(res.random(lulz));
+    });
+
     return robot.hear(/ship it/i, function(msg) {
       return msg.send(msg.random(squirrels));
     });
