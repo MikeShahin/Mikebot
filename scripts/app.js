@@ -29,9 +29,16 @@ module.exports = function(robot) {
     });
 
     robot.respond(/what can you do/i, function(msg) {
-      return msg.send("Here's are what I can do:")
+      return msg.send("Here's are what I can do, type @mikebot and one of the following commands:\n music")
     });
 
+    robot.respond(/music/i, function(msg) {
+      return msg.send("Do you want to know what bands I'm into or see what bands are playing soon in the Bay Area?")
+    });
+
+    robot.hear(/playing soon/i, function(msg) {
+      return msg.send("Check out this website for the latest shows:\n http://www.foopee.com/punk/the-list/");
+    });
 
     return robot.hear(/ship it/i, function(msg) {
       return msg.send(msg.random(squirrels));
