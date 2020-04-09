@@ -93,7 +93,7 @@ module.exports = function(robot) {
     'https://www.youtube.com/watch?v=UMvLvsdBzuE', 
     'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
 
-    robot.hear(/play a random song/i, function(res) {
+    robot.respond(/play a random song/i, function(res) {
       return res.send(res.random(randomSongs));
     });
     
