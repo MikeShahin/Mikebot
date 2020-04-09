@@ -24,7 +24,7 @@ module.exports = function(robot) {
        return msg.send("I love writing code!");
      });
 
-    robot.hear(/hi|hello/i, function(msg) {
+    robot.hear(/hey|hello/i, function(msg) {
       return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
     });
 
