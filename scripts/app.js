@@ -62,7 +62,7 @@ module.exports = function(robot) {
     robot.respond(/play (.*)/i, function(res) {
       let band;
       band = res.match[1];
-      if (band === "crass|Crass") {
+      if (band === "crass" | "Crass") {
         return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
       } //else if (band === "G.I.S.M") {
       //   return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
