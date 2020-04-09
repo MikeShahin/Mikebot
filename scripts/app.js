@@ -102,7 +102,7 @@ module.exports = function(robot) {
         return res.reply("https://www.youtube.com/watch?v=kXOUmOFVFPo");
       } else if (band === "Living Legends") {
         return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
-      } else if (band === "Anti-Pop Consortium"||"Anti-pop Consortium"||"anti-pop Consortium"||"anti-pop consortium") {
+      } else if (band === "Anti-Pop Consortium") {
         return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
       }
     });
