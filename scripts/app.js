@@ -83,14 +83,14 @@ module.exports = function(robot) {
       }
     });
 
-    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE', 
-    'https://www.youtube.com/watch?v=Fy6iPyWfI3E', 
-    'https://www.youtube.com/watch?v=kXOUmOFVFPo', 
-    'https://www.youtube.com/watch?v=0OytJYBfwUk', 
-    'https://www.youtube.com/watch?v=EtYS3EYjVyk', 
-    'https://www.youtube.com/watch?v=nnXjxtfKFDM', 
-    'https://www.youtube.com/watch?v=tNFwdpWwAQY', 
-    'https://www.youtube.com/watch?v=UMvLvsdBzuE', 
+    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE',
+    'https://www.youtube.com/watch?v=Fy6iPyWfI3E',
+    'https://www.youtube.com/watch?v=kXOUmOFVFPo',
+    'https://www.youtube.com/watch?v=0OytJYBfwUk',
+    'https://www.youtube.com/watch?v=EtYS3EYjVyk',
+    'https://www.youtube.com/watch?v=nnXjxtfKFDM',
+    'https://www.youtube.com/watch?v=tNFwdpWwAQY',
+    'https://www.youtube.com/watch?v=UMvLvsdBzuE',
     'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
 
     robot.respond(/play a random song/i, function(res) {
