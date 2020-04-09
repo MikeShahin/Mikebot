@@ -33,7 +33,19 @@ module.exports = function(robot) {
     });
 
     robot.respond(/music/i, function(msg) {
-      return msg.send("Do you want to know what bands I'm into or see what bands are playing soon in the Bay Area?")
+      return msg.send("If you want to recommendations for bands, type what genre you're into + 'bands' (i.e. 'punk bands') and I'll set you up with some good tunes, you can also type 'playing soon' to see what cool shows are coming up in the Bay Area?")
+    });
+
+    robot.hear(/(.*) bands/i, function(res) {
+      let genre;
+      genre = res.match[1];
+      if (genre === "punk") {
+        return res.reply("I've been diggin' Crass, Aus-Rotten, G.I.S.M., and Blatz");
+      } else if (genre === "rock") {
+        return res.reply("The best rock was in the '60s check out The Kinks, Love, 13th floor elevators, and Velvet Underground");
+      } else if (genre === "hiphop") {
+        return res.reply("I really dig Heiroglyphics, Deltron, MF Doom, Living Legends, and Anti-pop Consortium");
+      }
     });
 
     robot.hear(/playing soon/i, function(msg) {
