@@ -36,7 +36,7 @@ module.exports = function(robot) {
       return msg.send("If you want to recommendations for bands, type what genre you're into + 'bands' (i.e. 'punk bands') and I'll set you up with some good tunes, you can also type 'playing soon' to see what cool shows are coming up in the Bay Area?")
     });
 
-    robot.hear(/(.*) bands/i, function(res) {
+    robot.respond(/(.*) bands/i, function(res) {
       let genre;
       genre = res.match[1];
       if (genre === "punk") {
