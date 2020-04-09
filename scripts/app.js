@@ -92,7 +92,7 @@ module.exports = function(robot) {
         return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
       } else if (band === "Blatz") {
         return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
-      } else if (band === "The Kinks" && "kinks") {
+      } else if (band === "The Kinks") {
         return res.reply("https://www.youtube.com/watch?v=nnXjxtfKFDM");
       }  else if (band === "Love") {
         return res.reply("https://www.youtube.com/watch?v=EtYS3EYjVyk");
