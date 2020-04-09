@@ -28,28 +28,54 @@ module.exports = function(robot) {
       return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
     });
 
+    robot.hear(/add/i, function(msg) {
+      let a;
+      let b;
+
+      return msg.send(a + b);
+    });
+
     robot.respond(/what can you do/i, function(msg) {
-      return msg.send("Here's are what I can do, type @mikebot and one of the following commands:\n music")
+      return msg.send("Here's are what I can do, type @mikebot and one of the following commands:\n music \n math")
+    });
+
+    robot.respond(/math/i, function(msg) {
+      return msg.send("I can do basic math functions (bear with me I'm learning more complex algebra as we speak!) type in addition, subtraction, multiplication or division problems and I'll solve them!")
     });
 
     robot.respond(/music/i, function(msg) {
-      return msg.send("If you want to recommendations for bands, type what genre you're into + 'bands' (i.e. 'punk bands') and I'll set you up with some good tunes, you can also type 'playing soon' to see what cool shows are coming up in the Bay Area?")
+      return msg.send("If you want to recommendations for bands, type @mikebot + what genre you're into + 'bands' (i.e. 'punk bands')(p.s. at the moment I only know punk, rock, or hip hop) and I'll set you up with some good tunes, you can also type 'playing soon' to see what cool shows are coming up in the Bay Area?\n You can also try saying @mikebot play a random song if you want to be surprised")
     });
 
     robot.respond(/(.*) bands/i, function(res) {
       let genre;
       genre = res.match[1];
       if (genre === "punk") {
-        return res.reply("I've been diggin' Crass, Aus-Rotten, G.I.S.M., and Blatz");
+        return res.reply("I've been diggin' Crass, G.I.S.M., and Blatz. Type 'play' + the band name to get a sample!");
       } else if (genre === "rock") {
-        return res.reply("The best rock was in the '60s check out The Kinks, Love, 13th floor elevators, and Velvet Underground");
+        return res.reply("The best rock was in the '60s check out The Kinks, Love, and 13th floor elevators. Type 'play' + the band name to get a sample!");
       } else if (genre === "hiphop") {
-        return res.reply("I really dig Heiroglyphics, Deltron, MF Doom, Living Legends, and Anti-pop Consortium");
+        return res.reply("I really dig Heiroglyphics, Living Legends, and Anti-pop Consortium. Type 'play' + the band name to get a sample!");
       }
     });
 
+    robot.respond(/play (.*)/i, function(res) {
+      let band;
+      band = res.match[1];
+      if (band === "crass|Crass") {
+        return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
+      } else if (band === "G.I.S.M") {
+        return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
+      } else if (band === "blatz|Blatz") {
+        return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
+       } //else if (band === "|") {
+      //   return res.reply("");
+      // }
+    });
+
     robot.hear(/playing soon/i, function(msg) {
-      return msg.send("Check out this website for the latest shows:\n http://www.foopee.com/punk/the-list/");
+      return msg.send("Check out this wibsite for the latest shows: \n http://www.foopee.com/punk/the-list/");
+      //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
     });
 
     lulz = ['lol', 'rofl', 'lmao'];
