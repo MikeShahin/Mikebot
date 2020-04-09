@@ -64,7 +64,7 @@ module.exports = function(robot) {
       band = res.match[1];
       if (band === "crass" | "Crass") {
         return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
-      } else if (band === "G.I.S.M") {
+      } else if (band === "G.I.S.M."|"g.i.s.m"|"GISM"|"gism"|"G.I.S.M") {
         return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
       } else if (band === "blatz"| "Blatz") {
         return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
@@ -83,28 +83,23 @@ module.exports = function(robot) {
       }
     });
 
-    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE', 'https://www.youtube.com/watch?v=Fy6iPyWfI3E'];
+    randomSongs = ['https://www.youtube.com/watch?v=90RN42kBwaE', 
+    'https://www.youtube.com/watch?v=Fy6iPyWfI3E', 
+    'https://www.youtube.com/watch?v=kXOUmOFVFPo', 
+    'https://www.youtube.com/watch?v=0OytJYBfwUk', 
+    'https://www.youtube.com/watch?v=EtYS3EYjVyk', 
+    'https://www.youtube.com/watch?v=nnXjxtfKFDM', 
+    'https://www.youtube.com/watch?v=tNFwdpWwAQY', 
+    'https://www.youtube.com/watch?v=UMvLvsdBzuE', 
+    'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
+
     robot.hear(/play a random song/i, function(res) {
       return res.send(res.random(randomSongs));
     });
     
-
-    leaveReplies = ['Are you still there?', 'Target lost', 'Searching'];
-    robot.enter(function(res) {
-      return res.send(res.random(enterReplies));
-    });
     robot.hear(/playing soon/i, function(msg) {
       return msg.send("Check out this wibsite for the latest shows: \n http://www.foopee.com/punk/the-list/");
       //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
-    });
-
-    lulz = ['lol', 'rofl', 'lmao'];
-    robot.respond(/lulz/i, function(res) {
-      return res.send(res.random(lulz));
-    });
-
-    return robot.hear(/ship it/i, function(msg) {
-      return msg.send(msg.random(squirrels));
     });
   
   }
