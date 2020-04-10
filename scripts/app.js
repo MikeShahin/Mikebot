@@ -1,21 +1,3 @@
-// Description:
-//
-//
-// Dependencies:
-//   None
-//
-// Configuration:
-//   None
-//
-// Commands:
-//
-
-// module.exports = function(robot) {
-//   robot.verb(parameter1, function(res) {
-//      return res.command();
-//    });
-// };
-
 module.exports = function(robot) {
 
     robot.hear(/hey|hello/i, function(msg) {
@@ -78,6 +60,11 @@ module.exports = function(robot) {
       } else return res.reply("Sorry, I don't know that band, please choose from my recommendations")
     });
 
+    randSong = ['https://www.youtube.com/watch?v=90RN42kBwaE', 'https://www.youtube.com/watch?v=Fy6iPyWfI3E', 'https://www.youtube.com/watch?v=kXOUmOFVFPo', 'https://www.youtube.com/watch?v=0OytJYBfwUk', 'https://www.youtube.com/watch?v=EtYS3EYjVyk', 'https://www.youtube.com/watch?v=nnXjxtfKFDM', 'https://www.youtube.com/watch?v=tNFwdpWwAQY', 'https://www.youtube.com/watch?v=UMvLvsdBzuE', 'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
+    robot.hear(/play a random song/i, function(res) {
+      return res.send(res.random(randSong));
+    });
+
     robot.hear(/play anagrams/i, function(msg) {
       return msg.send("Ok, see how many words you can make with these! (only words with 3 or more letters count)\n reply with submit: and your word\ne a p t");
     });
@@ -85,55 +72,56 @@ module.exports = function(robot) {
     let score = 0; 
     robot.hear(/submit: (.*)/i, function(msg) {
       let word = msg.match[1];
+      const affirmations = ['Yay', 'Woohoo', 'Yipee', 'Woo', 'Hooya', 'Sweet', 'Got it', 'Nice']
       if (score === 15) { 
         return res.reply('You win! No more words left')
       }
         switch (word) {
           case 'pate':
             score ++
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);
           case 'peat':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'tape':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'tepa':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'ape':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'apt':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'pat':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'pea':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'pet':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'tap':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'ate':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'eat':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'eta':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'tae':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;
           case 'tea':
             score ++ 
-            return msg.reply("Yipee, I'll add one to your score, currently you're at: " + score);   
+            return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;   
           // case score === 15:
           //   score = 0;
           //   return msg.reply('You win! No more words left');
@@ -141,16 +129,6 @@ module.exports = function(robot) {
           default:
             return msg.reply('Sorry, not a word');
       }
-    });
-
-    robot.hear(/you're at: 1/i, function(msg) {
-      score === 0;
-      return msg.send("You win! No more words left");
-    });
-
-    randSong = ['https://www.youtube.com/watch?v=90RN42kBwaE', 'https://www.youtube.com/watch?v=Fy6iPyWfI3E', 'https://www.youtube.com/watch?v=kXOUmOFVFPo', 'https://www.youtube.com/watch?v=0OytJYBfwUk', 'https://www.youtube.com/watch?v=EtYS3EYjVyk', 'https://www.youtube.com/watch?v=nnXjxtfKFDM', 'https://www.youtube.com/watch?v=tNFwdpWwAQY', 'https://www.youtube.com/watch?v=UMvLvsdBzuE', 'https://www.youtube.com/watch?v=xDW3mCQ8qHU'];
-    robot.hear(/play a random song/i, function(res) {
-      return res.send(res.random(randSong));
     });
   
     robot.hear(/(.*)/i, function(res) {
