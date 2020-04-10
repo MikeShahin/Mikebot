@@ -19,6 +19,27 @@
 module.exports = function(robot) {
     //  YOUR CODE HERE
 
+
+    // robot.respond /who is @?([\w .\-]+)\?*$/i, (res) ->
+    // name = res.match[1].trim()
+
+    // users = robot.brain.usersForFuzzyName(name)
+    // if users.length is 1
+    //   user = users[0]
+    //   user.get('roles').then (roles) ->
+    //     res.send "#{name} is #{roles.join(', ')}"
+
+//     robot.respond (/who is @?([\w .\-]+)\?*$/i, function(res) {
+//     name = res.match[1].trim()
+
+//     users = robot.brain.usersForFuzzyName(name)
+//     if users.length is 1
+//       user = users[0]
+//       user.get('roles').then (roles) ->
+//         res.send "#{name} is #{roles.join(', ')}"
+
+// });
+
     robot.hear(/hey|hello/i, function(msg) {
       return res.reply("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
     });
@@ -40,13 +61,13 @@ module.exports = function(robot) {
       //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
     });
     
-      robot.http("https://midnight-train")
-    .header('Accept', 'application/json')
-    .get() (err, res, body) ->
-      # error checking code here
+    //   robot.http("https://midnight-train")
+    // .header('Accept', 'application/json')
+    // .get() (err, res, body) ->
+    //   # error checking code here
 
-      data = JSON.parse body
-      res.send "#{data.passenger} taking midnight train going #{data.destination}"
+    //   data = JSON.parse body
+    //   res.send "#{data.passenger} taking midnight train going #{data.destination}"
 
     robot.respond(/(.*) bands/i, function(res) {
       let genre;
