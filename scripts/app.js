@@ -60,26 +60,27 @@ module.exports = function(robot) {
       }
     });
 
+    //switch statement
     robot.respond(/play (.*)/i, function(res) {
       let band;
       band = res.match[1];
-      if (band === "crass"||"Crass") {
+      if (band === "crass"|| band === "Crass") {
         return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
       } else if (band === "G.I.S.M."||"g.i.s.m"||"GISM"||"gism"||"G.I.S.M") {
         return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
-      } else if (band === "blatz"||"Blatz") {
+      } else if (band === "blatz" || band === "Blatz") {
         return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
-      } else if (band === "The Kinks"||"the Kinks"||"the kinks"||"The kinks"||"kinks"||"Kinks") {
+      } else if (band === "The Kinks"|| band === "the Kinks"|| band === "the kinks"|| band === "The kinks" || band === "kinks"|| band === "Kinks") {
         return res.reply("https://www.youtube.com/watch?v=nnXjxtfKFDM");
-      }  else if (band === "Love"||"love") {
+      }  else if (band === "Love"|| band === "love") {
         return res.reply("https://www.youtube.com/watch?v=EtYS3EYjVyk");
-      } else if (band === "13th Floor Elevators"||"13th floor elevators") {
+      } else if (band === "13th Floor Elevators"|| band === "13th floor elevators") {
         return res.reply("https://www.youtube.com/watch?v=0OytJYBfwUk");
-      } else if (band === "Hieroglyphics"||"hieroglyphics") {
+      } else if (band === "Hieroglyphics"|| band === "hieroglyphics") {
         return res.reply("https://www.youtube.com/watch?v=kXOUmOFVFPo");
-      } else if (band === "Living Legends"||"living legends"||"Living legends"||"living Legends") {
+      } else if (band === "Living Legends"|| band === "living legends"|| band === "Living legends"|| band === "living Legends") {
         return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
-      } else if (band === "Anti-Pop Consortium"||"Anti-pop Consortium"||"anti-pop Consortium"||"anti-pop consortium") {
+      } else if (band === "Anti-Pop Consortium"|| band === "Anti-pop Consortium"|| band === "anti-pop Consortium"|| band === "anti-pop consortium") {
         return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
       }
     });
@@ -115,11 +116,24 @@ module.exports = function(robot) {
       return res.send(res.random(randSong));
     });
   
-    robot.hear(/add/i, function(res) {
-      let a;
-      let b;
+    robot.hear(/(.*)/i, function(res) {
+      //take in res
+      let result = res.match[1];
+      console.log(typeof result);
+      //split the string
 
-      return res.send(a + b);
+      let splitRes = result.split("+");
+      console.log(splitRes);
+      //convert first string to number
+      if (result.includes("+")) {
+        return res.send(Number(splitRes[0]) + Number(splitRes[1]));
+      }
+      //check if there is + symbol
+      //convert second part of string to number
+      //add numbers
+      //return/send number
+
+      //return res.send(result);
     });
   
   }
