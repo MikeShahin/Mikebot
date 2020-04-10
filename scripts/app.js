@@ -19,33 +19,12 @@
 module.exports = function(robot) {
     //  YOUR CODE HERE
 
-
-    // robot.respond /who is @?([\w .\-]+)\?*$/i, (res) ->
-    // name = res.match[1].trim()
-
-    // users = robot.brain.usersForFuzzyName(name)
-    // if users.length is 1
-    //   user = users[0]
-    //   user.get('roles').then (roles) ->
-    //     res.send "#{name} is #{roles.join(', ')}"
-
-//     robot.respond (/who is @?([\w .\-]+)\?*$/i, function(res) {
-//     name = res.match[1].trim()
-
-//     users = robot.brain.usersForFuzzyName(name)
-//     if users.length is 1
-//       user = users[0]
-//       user.get('roles').then (roles) ->
-//         res.send "#{name} is #{roles.join(', ')}"
-
-// });
-
     robot.hear(/hey|hello/i, function(msg) {
       return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about! hey");
     });
 
     robot.respond(/what can you do/i, function(msg) {
-      return msg.send("Here's are what I can do, type @mikebot and one of the following commands:\n music \n math")
+      return msg.reply("Here's are what I can do, type @mikebot and one of the following commands:\n music \n math")
     });
 
     robot.respond(/math/i, function(msg) {
