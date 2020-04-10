@@ -41,7 +41,7 @@ module.exports = function(robot) {
 // });
 
     robot.hear(/hey|hello/i, function(msg) {
-      return res.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about! hey");
+      return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about! hey");
     });
 
     robot.respond(/what can you do/i, function(msg) {
