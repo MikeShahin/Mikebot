@@ -18,21 +18,9 @@
 
 module.exports = function(robot) {
     //  YOUR CODE HERE
-    const squirrels = ["http://img.skitch.com/20100714-d6q52xajfh4cimxr3888yb77ru.jpg", "https://img.skitch.com/20111026-r2wsngtu4jftwxmsytdke6arwd.png", "http://cl.ly/1i0s1r3t2s2G3P1N3t3M/Screen_Shot_2011-10-27_at_9.36.45_AM.png", "http://shipitsquirrel.github.com/images/squirrel.png"];
-    //  Example
-     robot.hear(/javascript/i, function(msg) {
-       return msg.send("I love writing code!");
-     });
 
     robot.hear(/hey|hello/i, function(msg) {
-      return msg.send("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
-    });
-
-    robot.hear(/add/i, function(msg) {
-      let a;
-      let b;
-
-      return msg.send(a + b);
+      return res.reply("Howdy! I'm MikeBot, type '@mikebot what can you do?' to see what I'm all about!");
     });
 
     robot.respond(/what can you do/i, function(msg) {
@@ -46,6 +34,19 @@ module.exports = function(robot) {
     robot.respond(/music/i, function(msg) {
       return msg.send("If you want to recommendations for bands, type @mikebot + what genre you're into + 'bands' (i.e. 'punk bands')(p.s. at the moment I only know punk, rock, or hip hop) and I'll set you up with some good tunes, you can also type 'playing soon' to see what cool shows are coming up in the Bay Area?\n You can also try saying @mikebot play a random song if you want to be surprised")
     });
+    
+    robot.hear(/playing soon/i, function(msg) {
+      return msg.send("Check out this website for the latest shows: \n http://www.foopee.com/punk/the-list/");
+      //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
+    });
+    
+      robot.http("https://midnight-train")
+    .header('Accept', 'application/json')
+    .get() (err, res, body) ->
+      # error checking code here
+
+      data = JSON.parse body
+      res.send "#{data.passenger} taking midnight train going #{data.destination}"
 
     robot.respond(/(.*) bands/i, function(res) {
       let genre;
@@ -104,6 +105,8 @@ module.exports = function(robot) {
         return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
       } else if (band === "Anti-Pop Consortium") {
         return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
+      } else {
+        return res.reply("Make sure you spelled the bands name exactly how I did, I am also case sensative!")
       }
     });
 
@@ -111,15 +114,12 @@ module.exports = function(robot) {
     robot.hear(/play a random song/i, function(res) {
       return res.send(res.random(randSong));
     });
-    
-    lulz = ['lol', 'rofl', 'lmao'];
-    robot.respond(/lulz/i, function(res) {
-      return res.send(res.random(lulz));
-    });
+  
+    robot.hear(/add/i, function(res) {
+      let a;
+      let b;
 
-    robot.hear(/playing soon/i, function(msg) {
-      return msg.send("Check out this website for the latest shows: \n http://www.foopee.com/punk/the-list/");
-      //return msg.send("Check out this" + <a href='http://www.foopee.com/punk/the-list/'>#{@website}</a> + "for the latest shows");
+      return res.send(a + b);
     });
   
   }
