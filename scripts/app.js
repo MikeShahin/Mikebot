@@ -60,68 +60,41 @@ module.exports = function(robot) {
       }
     });
 
-    //switch statement
-    // robot.respond(/play (.*)/i, function(res) {
-    //   let band;
-    //   band = res.match[1];
-    //   if (band === "crass"|| band === "Crass") {
-    //     return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
-    //   } else if (band === "G.I.S.M."|| band === "g.i.s.m"|| band === "GISM"|| band === "gism"|| band === "G.I.S.M") {
-    //     return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
-    //   } else if (band === "blatz" || band === "Blatz") {
-    //     return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
-    //   } else if (band === "The Kinks"|| band === "the Kinks"|| band === "the kinks"|| band === "The kinks" || band === "kinks"|| band === "Kinks") {
-    //     return res.reply("https://www.youtube.com/watch?v=nnXjxtfKFDM");
-    //   }  else if (band === "Love"|| band === "love") {
-    //     return res.reply("https://www.youtube.com/watch?v=EtYS3EYjVyk");
-    //   } else if (band === "13th Floor Elevators"|| band === "13th floor elevators") {
-    //     return res.reply("https://www.youtube.com/watch?v=0OytJYBfwUk");
-    //   } else if (band === "Hieroglyphics"|| band === "hieroglyphics") {
-    //     return res.reply("https://www.youtube.com/watch?v=kXOUmOFVFPo");
-    //   } else if (band === "Living Legends"|| band === "living legends"|| band === "Living legends"|| band === "living Legends") {
-    //     return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
-    //   } else if (band === "Anti-Pop Consortium"|| band === "Anti-pop Consortium"|| band === "anti-pop Consortium"|| band === "anti-pop consortium") {
-    //     return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
-    //   }
-    // });
-    
-    robot.hear(/play (.*)/i, function(msg) {
-      let band = msg.match[1];
-  
-      switch (band) {
-        case 'Crass':
-          return msg.reply('https://www.youtube.com/watch?v=90RN42kBwaE');
-        case 'G.I.S.M':
-          return msg.reply('https://www.youtube.com/watch?v=UMvLvsdBzuE');
-
-        default:
-          return msg.reply(band + 'sucks');
+    robot.respond(/play (.*)/i, function(res) {
+      let band;
+      band = res.match[1];
+      if (band === "crass"|| band === "Crass") {
+        return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
+      } else if (band === "G.I.S.M."|| band === "g.i.s.m"|| band === "GISM"|| band === "gism"|| band === "G.I.S.M") {
+        return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
+      } else if (band === "blatz" || band === "Blatz") {
+        return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
+      } else if (band === "The Kinks"|| band === "the Kinks"|| band === "the kinks"|| band === "The kinks" || band === "kinks"|| band === "Kinks") {
+        return res.reply("https://www.youtube.com/watch?v=nnXjxtfKFDM");
+      }  else if (band === "Love"|| band === "love") {
+        return res.reply("https://www.youtube.com/watch?v=EtYS3EYjVyk");
+      } else if (band === "13th Floor Elevators"|| band === "13th floor elevators") {
+        return res.reply("https://www.youtube.com/watch?v=0OytJYBfwUk");
+      } else if (band === "Hieroglyphics"|| band === "hieroglyphics") {
+        return res.reply("https://www.youtube.com/watch?v=kXOUmOFVFPo");
+      } else if (band === "Living Legends"|| band === "living legends"|| band === "Living legends"|| band === "living Legends") {
+        return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
+      } else if (band === "Anti-Pop Consortium"|| band === "Anti-pop Consortium"|| band === "anti-pop Consortium"|| band === "anti-pop consortium") {
+        return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
       }
     });
+    
+    // robot.hear(/play (.*)/i, function(msg) {
+    //   let band = msg.match[1];
+  
+    //   switch (band) {
+    //     case 'Crass':
+    //       return msg.reply('https://www.youtube.com/watch?v=90RN42kBwaE');
+    //     case 'G.I.S.M':
+    //       return msg.reply('https://www.youtube.com/watch?v=UMvLvsdBzuE');
 
-    // robot.respond(/play (.*)/i, function(res) {
-    //   let band;
-    //   band = res.match[1];
-    //   if (band === "Crass") {
-    //     return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
-    //   } else if (band === "G.I.S.M.") {
-    //     return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
-    //   } else if (band === "Blatz") {
-    //     return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
-    //   } else if (band === "The Kinks") {
-    //     return res.reply("https://www.youtube.com/watch?v=nnXjxtfKFDM");
-    //   }  else if (band === "Love") {
-    //     return res.reply("https://www.youtube.com/watch?v=EtYS3EYjVyk");
-    //   } else if (band === "13th Floor Elevators") {
-    //     return res.reply("https://www.youtube.com/watch?v=0OytJYBfwUk");
-    //   } else if (band === "Hieroglyphics") {
-    //     return res.reply("https://www.youtube.com/watch?v=kXOUmOFVFPo");
-    //   } else if (band === "Living Legends") {
-    //     return res.reply("https://www.youtube.com/watch?v=Fy6iPyWfI3E");
-    //   } else if (band === "Anti-Pop Consortium") {
-    //     return res.reply("https://www.youtube.com/watch?v=90RN42kBwaE");
-    //   } else {
-    //     return res.reply("Make sure you spelled the bands name exactly how I did, I am also case sensative!")
+    //     default:
+    //       return msg.reply(band + 'sucks');
     //   }
     // });
 
