@@ -66,7 +66,7 @@ module.exports = function(robot) {
       band = res.match[1];
       if (band === "crass"|| band === "Crass") {
         return res.reply("https://www.youtube.com/watch?v=xDW3mCQ8qHU");
-      } else if (band === "G.I.S.M."||"g.i.s.m"||"GISM"||"gism"||"G.I.S.M") {
+      } else if (band === "G.I.S.M."|| band === "g.i.s.m"|| band === "GISM"|| band === "gism"|| band === "G.I.S.M") {
         return res.reply("https://www.youtube.com/watch?v=UMvLvsdBzuE");
       } else if (band === "blatz" || band === "Blatz") {
         return res.reply("https://www.youtube.com/watch?v=tNFwdpWwAQY");
