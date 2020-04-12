@@ -138,9 +138,10 @@ module.exports = function(robot) {
       //split the string
 
       let splitRes = result.split("+");
+      let split = result.split('');
       //console.log(splitRes);
       //convert first string to number
-      if (result.includes("+")) {
+      if (split.includes("+")) {
         return res.send(Number(splitRes[0]) + Number(splitRes[1]));
       }
       //check if there is + symbol
