@@ -141,7 +141,28 @@ module.exports = function(robot) {
       let split = result.split('');
       //console.log(splitRes);
       //convert first string to number
-      if (result.includes("+")) {
+      if (split.indexOf("+") > -1) {
+        return res.send(Number(splitRes[0]) + Number(splitRes[1]));
+      }
+      //check if there is + symbol
+      //convert second part of string to number
+      //add numbers
+      //return/send number
+
+      //return res.send(result);
+    });
+
+    robot.respond(/(.*)+(.*)/i, function(res) {
+      //take in res
+      let result = res.match[1];
+      //console.log(typeof result);
+      //split the string
+
+      let splitRes = result.split("+");
+      let split = result.split('');
+      //console.log(splitRes);
+      //convert first string to number
+      if (split.indexOf("+") > -1) {
         return res.send(Number(splitRes[0]) + Number(splitRes[1]));
       }
       //check if there is + symbol
