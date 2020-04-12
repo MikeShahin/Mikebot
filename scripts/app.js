@@ -131,7 +131,7 @@ module.exports = function(robot) {
       }
     });
   
-    robot.hear(/(.*)/i, function(res) {
+    robot.hear(/(.*)+(.*)/i, function(res) {
       //take in res
       let result = res.match[1];
       //console.log(typeof result);
@@ -141,7 +141,7 @@ module.exports = function(robot) {
       let split = result.split('');
       //console.log(splitRes);
       //convert first string to number
-      if (split.includes("+")) {
+      if (result.includes("+")) {
         return res.send(Number(splitRes[0]) + Number(splitRes[1]));
       }
       //check if there is + symbol
