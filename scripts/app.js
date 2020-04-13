@@ -122,9 +122,6 @@ module.exports = function(robot) {
           case 'tea':
             score ++ 
             return msg.reply(msg.random(affirmations) + ", I'll add one to your score, currently you're at: " + score);;   
-          // case score === 15:
-          //   score = 0;
-          //   return msg.reply('You win! No more words left');
 
           default:
             return msg.reply('Sorry, not a word');
